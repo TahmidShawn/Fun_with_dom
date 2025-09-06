@@ -19,11 +19,32 @@ let interval;
 // event listener
 
 startBtn.addEventListener("click", startFunc);
+pauseBtn.addEventListener("click", stopFunc);
+splitBtn.addEventListener("click", splitFunc);
+resetBtn.addEventListener("click", resetFunc);
 
 // controller func
 
 function startFunc() {
+    clearInterval(interval);
     interval = setInterval(updateTimer, 10);
+}
+
+function stopFunc() {
+    clearInterval(interval);
+}
+
+function splitFunc() {
+    const lapItem = document.createElement("li");
+    lapItem.innerHTML = `${minutes}:${seconds}:${milliseconds}`;
+    lapList.appendChild(lapItem);
+}
+
+function resetFunc() {
+    clearInterval(interval);
+    resetTimerData();
+    displayTimer();
+    lapList.innerHTML = "";
 }
 
 // helper func
@@ -45,4 +66,10 @@ function displayTimer() {
     millisecondsLabel.textContent = milliseconds;
     secondsLabel.textContent = seconds;
     minutesLabel.textContent = minutes;
+}
+
+function resetTimerData() {
+    milliseconds = 0;
+    seconds = 0;
+    minutes = 0;
 }
