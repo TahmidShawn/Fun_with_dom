@@ -1,0 +1,15 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#textInput {
+    width: 400px;
+}
+
+.check-btn  {
+    display: inline-block;
+    margin-top: 7px;
+    width: 50%;
+}
